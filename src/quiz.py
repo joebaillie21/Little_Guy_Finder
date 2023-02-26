@@ -80,7 +80,6 @@ def size():
 
 
 def take_quiz():
-    lil_guy = None
     match is_friend_shaped():
         case True:
             match size():
@@ -100,7 +99,7 @@ def take_quiz():
                         case False:
                             # Raccoon
                             lil_guy = 'Raccoon'
-                case 'Large':
+                case 'large':
                     # Bear
                     lil_guy = 'Bear'
         case False:
@@ -121,9 +120,10 @@ def take_quiz():
                 case False:
                     match is_high_maintainence():
                         case True:
-                            # Brick
-                            lil_guy = 'Brick'
-                        case False:
                             # Plant
                             lil_guy = 'Plant'
+                        case False:
+                            # Brick
+                            lil_guy = 'Brick'
+    print()
     return lil_guy

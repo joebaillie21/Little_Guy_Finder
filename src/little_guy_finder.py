@@ -1,4 +1,4 @@
-from src.util import *
+from util import *
 
 
 def build_db():
