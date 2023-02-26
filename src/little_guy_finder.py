@@ -35,7 +35,21 @@ def get_lil_guys_by_prim_trait(trait):
     INNER JOIN traits ON Little_Guys.primary_trait = traits.id
     WHERE traits.trait = %(trait)s
     """, args={"trait": trait})
-    return lil_guys
+    printable = ''
+    for t in lil_guys:
+        printable += '\nName: ' + t[0] + '\n'
+        printable += 'Info: ' + t[1] + '\n'
+        if t[2]:
+            printable += 'Friend Shaped\n'
+        else:
+            printable += 'Not Friend Shaped\n'
+        printable += 'Traits:\n'
+        printable += '\t' + get_trait_by_id(t[3])
+        if t[4] != None:
+            printable += '\n\t' + get_trait_by_id(t[4])
+        if t[5] != None:
+            printable += '\n\t' + get_trait_by_id(t[5])
+    return printable
 
 
 def get_lil_guys_by_secondary_trait(trait):
@@ -45,7 +59,21 @@ def get_lil_guys_by_secondary_trait(trait):
     INNER JOIN traits ON Little_Guys.secondary_trait = traits.id
     WHERE traits.trait = %(trait)s
     """, args={"trait": trait})
-    return lil_guys
+    printable = ''
+    for t in lil_guys:
+        printable += '\nName: ' + t[0] + '\n'
+        printable += 'Info: ' + t[1] + '\n'
+        if t[2]:
+            printable += 'Friend Shaped\n'
+        else:
+            printable += 'Not Friend Shaped\n'
+        printable += 'Traits:\n'
+        printable += '\t' + get_trait_by_id(t[3])
+        if t[4] != None:
+            printable += '\n\t' + get_trait_by_id(t[4])
+        if t[5] != None:
+            printable += '\n\t' + get_trait_by_id(t[5])
+    return printable
 
 
 def get_lil_guys_by_tertiary_trait(trait):
@@ -55,7 +83,21 @@ def get_lil_guys_by_tertiary_trait(trait):
     INNER JOIN traits ON Little_Guys.tertiary_trait = traits.id
     WHERE traits.trait = %(trait)s
     """, args={"trait": trait})
-    return lil_guys
+    printable = ''
+    for t in lil_guys:
+        printable += '\nName: ' + t[0] + '\n'
+        printable += 'Info: ' + t[1] + '\n'
+        if t[2]:
+            printable += 'Friend Shaped\n'
+        else:
+            printable += 'Not Friend Shaped\n'
+        printable += 'Traits:\n'
+        printable += '\t' + get_trait_by_id(t[3])
+        if t[4] != None:
+            printable += '\n\t' + get_trait_by_id(t[4])
+        if t[5] != None:
+            printable += '\n\t' + get_trait_by_id(t[5])
+    return printable
 
 
 def get_trait_by_id(id):
