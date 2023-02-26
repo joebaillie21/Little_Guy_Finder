@@ -65,3 +65,16 @@ def get_trait_by_id(id):
     if trait != None:
         return trait[0]
     return None
+
+
+def get_lil_guy_by_name(name):
+    guy = exec_get_one("""
+    SELECT name, info, friend_shaped, primary_trait, secondary_trait, tertiary_trait
+    FROM Little_Guys
+    WHERE name = %(name)s
+    """,  args={"name": name})
+    data = [guy[0], guy[1], guy[2]]
+    data.append(get_trait_by_id(guy[3]))
+    data.append(get_trait_by_id(guy[4]))
+    data.append(get_trait_by_id(guy[5]))
+    return data

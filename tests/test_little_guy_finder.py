@@ -144,3 +144,16 @@ class test_LGF(unittest.TestCase):
 
         # Analyze
         self.assertEqual(expected, result)
+
+    def test_get_lg_by_name(self):
+        # Setup
+        build_db()
+        name = 'Raccoon'
+        expected = ['Raccoon', 'Just a lil trash panda. Likes to wash their hands and food before they eat. Can be a lil bit angry and jittery but can calm down once they get settled and used to their environment.',
+                    True, 'Fiesty', 'Tidy', None]
+
+        # Invoke
+        result = get_lil_guy_by_name(name)
+
+        # Analyze
+        self.assertEqual(expected, result)

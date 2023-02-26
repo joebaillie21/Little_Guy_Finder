@@ -1,4 +1,4 @@
-from src.quiz import *
+from src.quiz import take_quiz
 
 
 def print_file(filename):
@@ -27,7 +27,7 @@ def main():
 
     match response:
         case '1':
-            quiz.take_quiz()
+            take_quiz()
         case '2':
             """ search() """
         case '3':
