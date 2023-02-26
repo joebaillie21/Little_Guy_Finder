@@ -4,8 +4,9 @@ DROP TABLE IF EXISTS Traits;
 CREATE TABLE Little_Guys
 (
     id SERIAL PRIMARY KEY,
-    lg_name TEXT,
-    info TEXT,
+    name TEXT NOT NULL,
+    info TEXT NOT NULL,
+    friend_shaped BOOLEAN NOT NULL DEFAULT TRUE,
     primary_trait INT NOT NULL,
     secondary_trait INT,
     tertiary_trait INT
