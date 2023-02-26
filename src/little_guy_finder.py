@@ -13,43 +13,46 @@ def get_traits():
     """, args={})
     if (traits == []):
         return "No traits accessible at this time."
-    return traits
+    data = []
+    for t in traits:
+        data.append(t[0])
+    return data
 
 
 def get_lil_guys():
     lil_guys = exec_get_all("""
-    SELECT name FROM Little_Guys
+    SELECT name, info, friend_shaped, primary_trait, secondary_trait, tertiary_trait FROM Little_Guys
     """, args={})
     if (lil_guys == []):
-        return "No traits accessible at this time."
+        return "No lil guys accessible at this time."
     return lil_guys
 
 
-def get_lil_guys_by_prim_trait(trait_id):
+def get_lil_guys_by_prim_trait(trait):
     lil_guys = exec_get_all("""
-    SELECT name
+    SELECT name, info, friend_shaped, primary_trait, secondary_trait, tertiary_trait
     FROM Little_Guys
     INNER JOIN traits ON Little_Guys.primary_trait = traits.id
-    WHERE Little_Guys.primary_trait = %(trait_id)s
-    """, args={"trait_id": trait_id})
+    WHERE traits.trait = %(trait)s
+    """, args={"trait": trait})
     return lil_guys
 
 
-def get_lil_guys_by_secondary_trait(trait_id):
+def get_lil_guys_by_secondary_trait(trait):
     lil_guys = exec_get_all("""
-    SELECT name
+    SELECT name, info, friend_shaped, primary_trait, secondary_trait, tertiary_trait
     FROM Little_Guys
-    INNER JOIN traits ON Little_Guys.primary_trait = traits.id
-    WHERE Little_Guys.secondary_trait = %(trait_id)s
-    """, args={"trait_id": trait_id})
+    INNER JOIN traits ON Little_Guys.secondary_trait = traits.id
+    WHERE traits.trait = %(trait)s
+    """, args={"trait": trait})
     return lil_guys
 
 
-def get_lil_guys_by_tertiary_trait(trait_id):
+def get_lil_guys_by_tertiary_trait(trait):
     lil_guys = exec_get_all("""
-    SELECT name
+    SELECT name, info, friend_shaped, primary_trait, secondary_trait, tertiary_trait
     FROM Little_Guys
-    INNER JOIN traits ON Little_Guys.primary_trait = traits.id
-    WHERE Little_Guys.tertiary_trait = %(trait_id)s
-    """, args={"trait_id": trait_id})
+    INNER JOIN traits ON Little_Guys.tertiary_trait = traits.id
+    WHERE traits.trait = %(trait)s
+    """, args={"trait": trait})
     return lil_guys
