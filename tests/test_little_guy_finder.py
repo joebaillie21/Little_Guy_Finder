@@ -132,3 +132,15 @@ class test_LGF(unittest.TestCase):
 
         # Analyze
         self.assertEqual(expected, result)
+
+    def test_get_trait_by_id(self):
+        # Setup
+        build_db()
+        id = 1
+        expected = 'Fiesty'
+
+        # Invoke
+        result = get_trait_by_id(id)
+
+        # Analyze
+        self.assertEqual(expected, result)

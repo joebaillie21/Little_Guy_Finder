@@ -1,4 +1,4 @@
-from quiz import *
+from src.quiz import *
 
 
 def print_file(filename):

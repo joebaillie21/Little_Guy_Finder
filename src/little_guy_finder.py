@@ -56,3 +56,12 @@ def get_lil_guys_by_tertiary_trait(trait):
     WHERE traits.trait = %(trait)s
     """, args={"trait": trait})
     return lil_guys
+
+
+def get_trait_by_id(id):
+    trait = exec_get_one("""
+    SELECT trait FROM Traits
+    WHERE id = %(id)s""", args={"id": id})
+    if trait != None:
+        return trait[0]
+    return None
